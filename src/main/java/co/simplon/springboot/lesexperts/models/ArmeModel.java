@@ -1,15 +1,16 @@
 package co.simplon.springboot.lesexperts.models;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class ArmeModel {
 	
 	private int id_arme;
 	private String modelArme;
 	private String typeArme;
-	private ArrayList<AdnModel> listAdnArme;
-	private ArrayList<EmpreinteModel> listEmpreinteModel;
-	private ArrayList<AffaireModel> listAffaireArme;
+	private List<AdnModel> listAdnArme;
+	private List<EmpreinteModel> listEmpreinteModel;
+	private List<AffaireModel> listAffaireArme;
+	private ProtagonnisteModelImpl protagonnisteArme;
 	
 	public ArmeModel() {
 		super();
@@ -39,29 +40,36 @@ public class ArmeModel {
 		this.typeArme = typeArme;
 	}
 
-	public ArrayList<AdnModel> getListAdnArme() {
+	public List<AdnModel> getListAdnArme() {
 		return listAdnArme;
 	}
 
-	public void setListAdnArme(ArrayList<AdnModel> listAdnArme) {
+	public void setListAdnArme(List<AdnModel> listAdnArme) {
 		this.listAdnArme = listAdnArme;
 	}
 
-	public ArrayList<EmpreinteModel> getListEmpreinteModel() {
+	public List<EmpreinteModel> getListEmpreinteModel() {
 		return listEmpreinteModel;
 	}
 
-	public void setListEmpreinteModel(ArrayList<EmpreinteModel> listEmpreinteModel) {
+	public void setListEmpreinteModel(List<EmpreinteModel> listEmpreinteModel) {
 		this.listEmpreinteModel = listEmpreinteModel;
 	}
 
-	public ArrayList<AffaireModel> getListAffaireArme() {
+	public List<AffaireModel> getListAffaireArme() {
 		return listAffaireArme;
 	}
 
-	public void setListAffaireArme(ArrayList<AffaireModel> listAffaireArme) {
+	public void setListAffaireArme(List<AffaireModel> listAffaireArme) {
 		this.listAffaireArme = listAffaireArme;
 	}
 	
+	public ProtagonnisteModelImpl getProtagonnisteArme() {
+		return protagonnisteArme;
+	}
+	
+	public void setProtagonnisteArme(ProtagonnisteModelImpl protagonnisteArme) {
+		this.protagonnisteArme = protagonnisteArme;
+	}
 
 }
