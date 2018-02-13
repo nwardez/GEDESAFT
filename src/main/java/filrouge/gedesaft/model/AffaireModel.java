@@ -1,4 +1,4 @@
-package co.simplon.springboot.lesexperts.models;
+package filrouge.gedesaft.model;
 
 import java.sql.Date;
 import java.util.List;

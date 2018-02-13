@@ -1,4 +1,4 @@
-package co.simplon.springboot.lesexperts.models;
+package filrouge.gedesaft.model;
 
 public class TemoinModel extends ProtagonnisteModelImpl {
 	
