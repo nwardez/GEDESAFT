@@ -4,27 +4,27 @@ import java.util.List;
 
 public class VehiculeModel {
 	
-	private int id_vehicle;
+	private Long id_vehicule;
 	private String typeVehicule;
 	private String marqueVehicule;
 	private String modeleVehicule;
 	private String immatriculationVehicule;
-	private String couleurvehicule;
-	private List<AffaireModel> listAffaireVehicule;
-	private List<EmpreinteModel> listEmpreinteVehicule;
-	private List<AdnModel> listAdnVehicule;
-	private ProtagonnisteModelImpl protagonnisteVehicule;
+	private String couleurVehicule;
+	private List<String> protagonnisteVehicule;
+	private List<String> listAffaireVehicule;
+	private List<String> listEmpreinteVehicule;
+	private List<String> listAdnVehicule;
 	
 	public VehiculeModel () {
 		super();
 	}
 
-	public int getId_vehicle() {
-		return id_vehicle;
+	public Long getId_vehicule() {
+		return id_vehicule;
 	}
 
-	public void setId_vehicle(int id_vehicle) {
-		this.id_vehicle = id_vehicle;
+	public void setId_vehicule(Long id_vehicle) {
+		this.id_vehicule = id_vehicle;
 	}
 
 	public String getTypeVehicule() {
@@ -59,43 +59,43 @@ public class VehiculeModel {
 		this.immatriculationVehicule = immatriculationVehicule;
 	}
 
-	public String getCouleurvehicule() {
-		return couleurvehicule;
+	public String getCouleurVehicule() {
+		return couleurVehicule;
 	}
 
-	public void setCouleurvehicule(String couleurvehicule) {
-		this.couleurvehicule = couleurvehicule;
+	public void setCouleurVehicule(String couleurVehicule) {
+		this.couleurVehicule = couleurVehicule;
 	}
 
-	public List<AffaireModel> getListAffairesVehicule() {
+	public List<String> getListAffairesVehicule() {
 		return listAffaireVehicule;
 	}
 
-	public void setListAffairesVehicule(List<AffaireModel> listAffaireVehicule) {
+	public void setListAffairesVehicule(List<String> listAffaireVehicule) {
 		this.listAffaireVehicule = listAffaireVehicule;
 	}
 
-	public List<EmpreinteModel> getListEmpreintesVehicule() {
+	public List<String> getListEmpreintesVehicule() {
 		return listEmpreinteVehicule;
 	}
 
-	public void setListEmpreintesVehicule(List<EmpreinteModel> listEmpreinteVehicule) {
+	public void setListEmpreintesVehicule(List<String> listEmpreinteVehicule) {
 		this.listEmpreinteVehicule = listEmpreinteVehicule;
 	}
 
-	public List<AdnModel> getListAdnVehicule() {
+	public List<String> getListAdnVehicule() {
 		return listAdnVehicule;
 	}
 
-	public void setListAdnVehicule(List<AdnModel> listAdnVehicule) {
+	public void setListAdnVehicule(List<String> listAdnVehicule) {
 		this.listAdnVehicule = listAdnVehicule;
 	};
 	
-	public ProtagonnisteModelImpl getProtagonnisteVehicule() {
+	public List<String> getProtagonnisteVehicule() {
 		return protagonnisteVehicule;
 	}
 	
-	public void setProtagonnisteVehicule(ProtagonnisteModelImpl protagonnisteVehicule) {
+	public void setProtagonnisteVehicule(List<String> protagonnisteVehicule) {
 		this.protagonnisteVehicule = protagonnisteVehicule;
 	}
 	
