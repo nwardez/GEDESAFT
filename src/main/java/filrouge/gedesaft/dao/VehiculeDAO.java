@@ -121,7 +121,7 @@ public class VehiculeDAO implements DataInterfaceDAO {
 		return vehicule;
 	}
 	
-	public List<AffichageModel> listAffichage(String utilisateur) throws Exception {
+	public List<AffichageModel> listAffichage(Long id_utilisateur) throws Exception {
 		AffichageModel affichage;
 		PreparedStatement pstmt = null;
 		ResultSet rs;
@@ -135,9 +135,9 @@ public class VehiculeDAO implements DataInterfaceDAO {
 					+ " JOIN affaire ON affaire_has_vehicule.id_affaire = affaire.id_affaire"
 					+ " JOIN affaire_has_protagonniste ON affaire.id_affaire = affaire_has_protagonniste.id_affaire"
 					+ " JOIN protagonniste ON affaire_has_protagonniste.id_protagonniste = protagonniste.id_protagonniste"
-					+ " WHERE protagonniste.nomProtagonniste = ? ";
+					+ " WHERE protagonniste.id_Protagonniste = ? ";
 			pstmt = datasource.getConnection().prepareStatement(sql);
-			pstmt.setString(1, utilisateur);
+			pstmt.setLong(1, id_utilisateur);
 			
 			// Log info
 			logSQL(pstmt);
