@@ -18,7 +18,7 @@ public class VehiculeService {
 //		return dao.listData();
 //	}
 
-	public List<AffichageModel> getListAffichage() throws Exception {
-		return dao.listAffichage();
+	public List<AffichageModel> getListAffichage(String utilisateur) throws Exception {
+		return dao.listAffichage(utilisateur);
 	}
 }

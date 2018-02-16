@@ -16,6 +16,8 @@ import filrouge.gedesaft.service.VehiculeService;
 @RequestMapping("/vehicule")
 public class VehiculeController {
 	
+	String utilisateur = "Protagonniste4";
+	
 	@Autowired
 	private VehiculeService vehiculeService;
 	
@@ -23,7 +25,7 @@ public class VehiculeController {
 	public ResponseEntity<?> getListAfichage(){
 		List<AffichageModel> listeAffichage;
 		try {
-			listeAffichage = vehiculeService.getListAffichage();
+			listeAffichage = vehiculeService.getListAffichage(utilisateur);
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
 		}
