@@ -41,9 +41,24 @@ public class VehiculeDAO implements DataInterfaceDAO {
 	public VehiculeDAO(JdbcTemplate jdbcTemplate) {
 		this.datasource = jdbcTemplate.getDataSource();
 	}
-	
+
+//	Cette methode sert a construire une liste de couple id_vehicule/type/vehicule (classe AffichageModel)
+//	concernant tous les vehicules qui sont lies a une affaire a laquelle est liee l'utilisateur.
+//	la methode a besoin de l'id de l'utilisateur comme parametre.
+	/**
+	 * @param id_utilisateur
+	 * @return
+	 * @throws Exception
+	 */
 	public List<AffichageModel> listAffichageVehicule(Long id_utilisateur) throws Exception {
+//	On declare la variable listAffichageVehicule, a laquelle la methode va donner une valeur
 		List <AffichageModel> listAffichageVehicule;
+//	On initialise les variables qui seront les parametres de la methode listAffichage():
+//	idRecherche : qui est l'id par rapport auquel on fait la recherche (ici, l'id_utilisateur),
+//	c'est la veleur que prendra le ? de la requete.
+//	id_colonne et name_colonne sont les noms des colonnes dont les valeurs permettront
+//	de construire les instances de la classe AffichageModel (les couples id/noms affiches dans les boutons)
+//	request est la requete qui permet de faire la recherche.
 		Long idRecherche = id_utilisateur;
 		String id_colonne = "id_vehicule";
 		String name_colonne = "typeVehicule";
@@ -53,15 +68,24 @@ public class VehiculeDAO implements DataInterfaceDAO {
 				+ " JOIN affaire_has_protagonniste ON affaire.id_affaire = affaire_has_protagonniste.id_affaire"
 				+ " JOIN protagonniste ON affaire_has_protagonniste.id_protagonniste = protagonniste.id_protagonniste"
 				+ " WHERE protagonniste.id_Protagonniste = ? ";
+//	On donne a la variable listAfichageVehicule la valeur produite par la methode listAffichage()
+//	listAffichage() est la liste qui construit de façon generique une liste d'instances de AffichageModel
+//	elle a besoin de 4 parametres, qui ont ete initialises ci-dessus.
 		listAffichageVehicule = listAffichage(idRecherche, id_colonne, name_colonne, request);
-		
+
+//	On retourne la liste que l'on a construite.
 		return listAffichageVehicule;
 	}	
 	
-//	Methode qui va permettre de créer une liste d'instances de la classe AffichageModel
-//	c'est à dire qui va renvoyer l'id_vehicule et le typeVehicule des vehicules qui sont
-//	lies aux affaires liees a l'utilisateur connecte a l'appli.
-//	Evidemment, cette methode a en parametre l'id de l'utilisateur.
+//	Methode qui va permettre de creer une liste d'instances de la classe AffichageModel
+//	c'est à dire qui va renvoyer le couple id_:donnee affichee dans le bouton des objets
+//	dont on veut afficher une liste.
+//	Cette methode a besoin de 4 paramteres:
+//	idRecherche, qui est l'id par rapport auquel on veut faire une recherche
+//	(si on veut par exemple, la liste des empreintes liees a un vehicule donne, on met l'id_vehicule);
+//	name_colonne, c'est le nom de la colonne dont on veut afficher le contenu dans la liste de boutons;
+//	id_colonne, c'est le nom d ela coloone ou se trouvent les id qui seront associes aux boutons de la liste;
+//	request, c'est la requete sql qui permettra e trouver toutes les ojets qui devrnt etres listes.
 	/**
 	 * @param id_utilisateur
 	 * @return
@@ -86,12 +110,14 @@ public class VehiculeDAO implements DataInterfaceDAO {
 
 //	On prepare la requete en remplissant l'instance pstmt de la classe PrepareStatement:			
 //	- on etablie la connexion avec la base de donnees (datasource.getConnection());
-//	- on transmet la requete a base de donnees (datasource.prepareStatement(sql)).
+//	- on transmet la requete a base de donnees (datasource.prepareStatement(request)):
+//	la variable request a ete donnee en parametre a la methode.
 			pstmt = datasource.getConnection().prepareStatement(request);
-//	On donne une valeur a la varibale (matererialisee par un ?) qu'il y a dans la requete SQL
+//	On donne une valeur a la variable (materialisee par un ?)
+//	qu'il y a dans la requete SQL donnee en parametre a la methode.
 //	Le 1 donne la position du ? dans la requete,
 //	et on remplace la ? par la valeur de la variable qui suite le 1 (ici id_utilisateur).
-//	Chaque ? dans la requete sera resolu par un couple cle(position du ?)/valeur(veleur qu'on donne au ?)
+//	Chaque ? dans la requete sera resolu par un couple cle(position du ?)/valeur(valeur qu'on donne au ?)
 //	S'il y a par exemple trois ? dans la requete, on aura la commande:
 //	pstmt.setLong(1,X ; 2,Y ; 3,Z); a condition que les trois valeurs soient du type Long
 //	on pourrait avoir:
@@ -105,15 +131,17 @@ public class VehiculeDAO implements DataInterfaceDAO {
 //	et on en stocke le resultat dans la variable rs de type ResultSet
 			rs = pstmt.executeQuery();
 
-//	notre requete va renvoyer plusieurs resultats (on cherche a obtenir une liste!)
+//	Notre requete va renvoyer plusieurs resultats (on cherche a obtenir une liste!)
 //	Donc on fait une boucle while qui va fonctionner tant que la requete renvoye un resultat:
 //	la boucle tournen tant que rs.next() est vrai (tant qu'il reste un resultat a renvoyer)
 			while (rs.next()) {
 //	On stocke dans la variable affichage l'instanciation de la classe AffichageModel
 //	obtenu grace a la methode getAffchageFromResultSet
-//	avec les resultat de la requete (variable rs) 
+//	avec les resultats de la requete (variable rs).
+//	On donne egalement en parametre les colonnes dont les valeurs vont permettre
+//	d'instancier les objets de la liste de type AffichageModel.
 				affichage = getAffichageFromResultSet(rs, id_colonne, name_colonne);
-//	On ajoute l'instance de la classe AffichageModel obtenur dans la liste aListOfAffichage
+//	On ajoute l'instance de la classe AffichageModel obtenue dans la liste aListOfAffichage.				
 				aListOfAffichage.add(affichage);
 			}
 
@@ -200,7 +228,7 @@ public class VehiculeDAO implements DataInterfaceDAO {
 		return vehicule;
 	}
 
-//	methode servant fabriquer une instance de la classe vehiculeModel a partir
+//	methode servant fabriquer une instance de la classe VehiculeModel a partir
 //	d'un id-vehicule (Long id) et du resultat d'une requete SQl (ResultSet rs)
 	/**
 	 * @param rs
@@ -209,7 +237,10 @@ public class VehiculeDAO implements DataInterfaceDAO {
 	 * @throws Exception
 	 */
 	private VehiculeModel getVehiculeFromResultSet(ResultSet rs, Long id) throws Exception {
+//	On instancie un objet de type VehiculeModel.
 		VehiculeModel vehicule = new VehiculeModel();
+//	On initialise des variables qui correspondent aux requetes necessaires pour construire
+//	pour contruire ls listes liees au vehicule: liste d'empreintes, d'adn, d'affaires.
 		String requestAffaire = "SELECT DISTINCT affaire.id_affaire, nomAffaire FROM affaire"
 				+ " JOIN affaire_has_vehicule ON affaire.id_affaire = affaire_has_vehicule.id_affaire"
 				+ " JOIN vehicule ON affaire_has_vehicule.id_vehicule = vehicule.id_vehicule"
@@ -222,15 +253,20 @@ public class VehiculeDAO implements DataInterfaceDAO {
 				+ " JOIN vehicule_has_empreintes ON empreintes.id_empreintes = vehicule_has_empreintes.id_empreintes"
 				+ " JOIN vehicule ON vehicule_has_empreintes.id_vehicule = vehicule.id_vehicule"
 				+ " WHERE vehicule.id_vehicule = ?";
+//	Requete pour trouver les propretaires du vehicule.
 		String requestProtagonniste = "SELECT DISTINCT protagonniste.id_protagonniste, nomProtagonniste FROM protagonniste"
 				+ " JOIN vehicule ON protagonniste.id_protagonniste = vehicule.id_protagonniste"
 				+ " WHERE vehicule.id_vehicule = ?";
+//	On construit l'instance du vehicule.
+//	C'est le meme principe que dnas la methode getAffichageFrom ResultSet();
 		vehicule.setId_vehicule(rs.getLong("id_vehicule"));
 		vehicule.setTypeVehicule(rs.getString("typevehicule"));
 		vehicule.setMarqueVehicule(rs.getString("marquevehicule"));
 		vehicule.setModeleVehicule(rs.getString("modeleVehicule"));
 		vehicule.setCouleurVehicule(rs.getString("couleurVehicule"));
 		vehicule.setImmatriculationVehicule(rs.getString("immatriculationVehicule"));
+//	Ici, aux setters, on donne comme valeur des listes d'instances de la classe AfichageModel,
+//	que l'on construit avec la methode listAffichage().
 		vehicule.setProtagonnisteVehicule(listAffichage(id, "id_protagonniste", "nomProtagonniste", requestProtagonniste));
 		vehicule.setListAffaireVehicule(listAffichage(id, "id_affaire", "nomAffaire", requestAffaire));
 		vehicule.setListAdnVehicule(listAffichage(id, "id_adn", "nomADN", requestADN));
