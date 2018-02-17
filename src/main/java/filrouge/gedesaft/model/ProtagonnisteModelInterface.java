@@ -2,17 +2,17 @@ package filrouge.gedesaft.model;
 
 public interface ProtagonnisteModelInterface {
 
-	public int getId_personne();
-	public void setId_personne(int id_personne);
+	public int getId_protagonniste();
+	public void setId_protagonniste(int id_personne);
 	
-	public String getNomPersonne();
-	public void setNomPersonne(String nomPersonne);
+	public String getNomProtagonniste();
+	public void setNomProtagonniste(String nomPersonne);
 	
-	public String getPrenomPersonne();
-	public void setPrenomPersonne(String PrenomPersonne);
+	public String getPrenomProtagonniste();
+	public void setPrenomProtagonniste(String PrenomPersonne);
 	
-	public String getStatutPersonne();
-	public void setStatutPersonne(String StatutPersonne);
+	public String getStatutProtagoniste();
+	public void setStatutProtagonniste(String StatutPersonne);
 	
 	public EmpreinteModel getEmpreinteProtagonniste();
 	public void setEmpreinteProtagonniste(EmpreinteModel empreinteProtagonniste);

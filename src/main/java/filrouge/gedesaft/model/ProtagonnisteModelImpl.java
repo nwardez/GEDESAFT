@@ -2,10 +2,10 @@ package filrouge.gedesaft.model;
 
 public class ProtagonnisteModelImpl implements ProtagonnisteModelInterface {
 	
-	private int id_personne;
-	private String nomPersonne;
-	private String prenomPersonne;
-	private String statutPersonne;
+	private int id_protagonniste;
+	private String nomProtagonniste;
+	private String prenomProtagonniste;
+	private String statutProtagonniste;
 	private EmpreinteModel empreinteProtagonniste;
 	private AdnModel adnProtagonniste;
 	
@@ -14,43 +14,42 @@ public class ProtagonnisteModelImpl implements ProtagonnisteModelInterface {
 	}
 
 	@Override
-	public int getId_personne() {
-		return id_personne;
+	public int getId_protagonniste() {
+		return id_protagonniste;
 	}
 
 	@Override
-	public void setId_personne(int id_personne) {
-		this.id_personne = id_personne;
+	public void setId_protagonniste(int id_protagonniste) {
+		this.id_protagonniste = id_protagonniste;
 	}
 
 	@Override
-	public String getNomPersonne() {
-		return nomPersonne;
+	public String getNomProtagonniste() {
+		return nomProtagonniste;
 	}
 
 	@Override
-	public void setNomPersonne(String nomPersonne) {
-		this.nomPersonne = nomPersonne;
+	public void setNomProtagonniste(String nomProtagonniste) {
+		this.nomProtagonniste = nomProtagonniste;
 	}
 
 	@Override
-	public String getPrenomPersonne() {
-		return prenomPersonne;
+	public String getPrenomProtagonniste() {
+		return prenomProtagonniste;
 	}
 
 	@Override
-	public void setPrenomPersonne(String prenomPersonne) {
-		this.prenomPersonne = prenomPersonne;
+	public void setPrenomProtagonniste(String prenomProtagonniste) {
+		this.prenomProtagonniste = prenomProtagonniste;
 	}
 
 	@Override
-	public String getStatutPersonne() {
-		return statutPersonne;
+	public String getStatutProtagoniste() {
+		return statutProtagonniste;
 	}
 
 	@Override
-	public void setStatutPersonne(String statutPersonne) {
-		this.statutPersonne = statutPersonne;
+	public void setStatutProtagonniste(String statutProtagonniste) {	
 	}
 
 	@Override
@@ -72,5 +71,4 @@ public class ProtagonnisteModelImpl implements ProtagonnisteModelInterface {
 	public void setAdnProtagonniste(AdnModel adnProtagonniste) {
 		this.adnProtagonniste = adnProtagonniste;
 	}
-
 }

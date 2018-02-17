@@ -25,7 +25,7 @@ public class VehiculeService {
 
 //	Cette methode sert a recuperer une liste d'instance d'objets de type AfficheModel
 //	(couple de id_vehicule et de typeVéhicule issus de la table vehicule de la base de donnees)
-//	generee par la méthode listAffichage() de la classe VehiculeDAO
+//	generee par la méthode listAffichageVehicule() de la classe VehiculeDAO
 //	Elle prend l'id de l'utilisateur en paramètre.
 	/**
 	 * @param id_utilisateur
@@ -33,7 +33,7 @@ public class VehiculeService {
 	 * @throws Exception
 	 */
 	public List<AffichageModel> getListAffichage(Long id_utilisateur) throws Exception {
-		return dao.listAffichage(id_utilisateur);
+		return dao.listAffichageVehicule(id_utilisateur);
 	}
 
 // Cette methode sert a recuperer l'instance d'un objet de type VehiculeModel (tous les détails d'une voiture)
