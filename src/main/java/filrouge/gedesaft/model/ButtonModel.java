@@ -1,11 +1,11 @@
 package filrouge.gedesaft.model;
 
-public class AffichageModel {
+public class ButtonModel {
 	
 	Long id;
 	String name;
 	
-	public AffichageModel () {
+	public ButtonModel () {
 		super();
 	}
 

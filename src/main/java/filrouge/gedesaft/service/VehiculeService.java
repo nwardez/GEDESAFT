@@ -5,32 +5,26 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import filrouge.gedesaft.dao.VehiculeDAO;
-import filrouge.gedesaft.model.AffichageModel;
-import filrouge.gedesaft.model.VehiculeModel;
+import filrouge.gedesaft.dao.DaoVehicule;
+import filrouge.gedesaft.model.ButtonModel;
+import filrouge.gedesaft.model.Vehicule;
 
 @Service
 public class VehiculeService {
 
 	@Autowired
-	private VehiculeDAO dao;
+	private DaoVehicule dao;
 
-	/**
-	 * @param id_utilisateur
-	 * @return 
-	 * @throws Exception
-	 */
-	public List<AffichageModel> getListAffichage(Long id_utilisateur) throws Exception {
-		return dao.listAffichageVehicule(id_utilisateur);
-	}
-
-	/**
-	 * @param id
-	 * @return
-	 * @throws Exception
-	 */
-	public VehiculeModel getVehicule(Long id) throws Exception {
-	return dao.getData(id);
+	public List<ButtonModel> getListVehiculeButton(Long id_utilisateur) throws Exception {
+		return dao.getListButtonVehicule(id_utilisateur);
 	}
 	
+	public Vehicule getVehiculeDetail(Long id_vehicule) throws Exception {
+		Vehicule vehicule = dao.getVehicule(id_vehicule);
+		vehicule.setListAffaireVehicule(dao.getListButtonAffaireOfVehicule(id_vehicule));
+		vehicule.setListAdnVehicule(dao.getListButtonADNOfVehicule(id_vehicule));
+		vehicule.setListEmpreinteVehicule(dao.getListButtonEmpreinteOfVehicule(id_vehicule));
+		vehicule.setListProtagonnisteVehicule(dao.getListButtonProtagonnisteOfVehicule(id_vehicule));
+		return vehicule;
+	}
 }

@@ -2,7 +2,7 @@ package filrouge.gedesaft.model;
 
 import java.util.List;
 
-public class VehiculeModel {
+public class Vehicule {
 	
 	private Long id_vehicule;
 	private String typeVehicule;
@@ -10,12 +10,12 @@ public class VehiculeModel {
 	private String modeleVehicule;
 	private String immatriculationVehicule;
 	private String couleurVehicule;
-	private List<AffichageModel> protagonnisteVehicule;
-	private List<AffichageModel> listAffaireVehicule;
-	private List<AffichageModel> listEmpreinteVehicule;
-	private List<AffichageModel> listAdnVehicule;
+	private List<ButtonModel> listProtagonnisteVehicule;
+	private List<ButtonModel> listAffaireVehicule;
+	private List<ButtonModel> listEmpreinteVehicule;
+	private List<ButtonModel> listAdnVehicule;
 	
-	public VehiculeModel () {
+	public Vehicule () {
 		super();
 	}
 
@@ -67,35 +67,35 @@ public class VehiculeModel {
 		this.couleurVehicule = couleurVehicule;
 	}
 
-	public List<AffichageModel> getProtagonnisteVehicule() {
-		return protagonnisteVehicule;
+	public List<ButtonModel> getListProtagonnisteVehicule() {
+		return listProtagonnisteVehicule;
 	}
 
-	public void setProtagonnisteVehicule(List<AffichageModel> protagonnisteVehicule) {
-		this.protagonnisteVehicule = protagonnisteVehicule;
+	public void setListProtagonnisteVehicule(List<ButtonModel> listProtagonnisteVehicule) {
+		this.listProtagonnisteVehicule = listProtagonnisteVehicule;
 	}
 
-	public List<AffichageModel> getListAffaireVehicule() {
+	public List<ButtonModel> getListAffaireVehicule() {
 		return listAffaireVehicule;
 	}
 
-	public void setListAffaireVehicule(List<AffichageModel> listAffaireVehicule) {
+	public void setListAffaireVehicule(List<ButtonModel> listAffaireVehicule) {
 		this.listAffaireVehicule = listAffaireVehicule;
 	}
 
-	public List<AffichageModel> getListEmpreinteVehicule() {
+	public List<ButtonModel> getListEmpreinteVehicule() {
 		return listEmpreinteVehicule;
 	}
 
-	public void setListEmpreinteVehicule(List<AffichageModel> listEmpreinteVehicule) {
+	public void setListEmpreinteVehicule(List<ButtonModel> listEmpreinteVehicule) {
 		this.listEmpreinteVehicule = listEmpreinteVehicule;
 	}
 
-	public List<AffichageModel> getListAdnVehicule() {
+	public List<ButtonModel> getListAdnVehicule() {
 		return listAdnVehicule;
 	}
 
-	public void setListAdnVehicule(List<AffichageModel> listAdnVehicule) {
+	public void setListAdnVehicule(List<ButtonModel> listAdnVehicule) {
 		this.listAdnVehicule = listAdnVehicule;
 	}
 	

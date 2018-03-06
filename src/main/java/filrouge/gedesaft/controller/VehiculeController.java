@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import filrouge.gedesaft.model.AffichageModel;
-import filrouge.gedesaft.model.VehiculeModel;
+import filrouge.gedesaft.model.ButtonModel;
+import filrouge.gedesaft.model.Vehicule;
 import filrouge.gedesaft.service.VehiculeService;
 
 @RestController
@@ -27,14 +27,14 @@ public class VehiculeController {
 	 * @return
 	 */
 	@RequestMapping(value = "/liste_vehicules", method = RequestMethod.GET)
-	public ResponseEntity<?> getListForButtonList(){
-		List<AffichageModel> listeAffichage; 
+	public ResponseEntity<?> getListVehiculeButton(){
+		List<ButtonModel> listButtonName = null; 
 		try {
-			listeAffichage = vehiculeService.getListAffichage(id_utilisateur);
+			listButtonName = vehiculeService.getListVehiculeButton(id_utilisateur);
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
 		}
-		return ResponseEntity.status(HttpStatus.OK).body(listeAffichage);
+		return ResponseEntity.status(HttpStatus.OK).body(listButtonName);
 	}
 
 	/**
@@ -42,10 +42,10 @@ public class VehiculeController {
 	 * @return
 	 */
 	@RequestMapping(value= "/detail/{id}", method = RequestMethod.GET)
-	public ResponseEntity<?> getVehicule(@PathVariable Long id) {
-		VehiculeModel vehicule;
+	public ResponseEntity<?> getVehiculeDetail(@PathVariable Long id) {
+		Vehicule vehicule = null;
 		try {
-			vehicule = vehiculeService.getVehicule(id);
+			vehicule = vehiculeService.getVehiculeDetail(id);
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
 		}

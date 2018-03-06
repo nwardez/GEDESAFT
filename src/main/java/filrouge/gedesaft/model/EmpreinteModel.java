@@ -8,7 +8,7 @@ public class EmpreinteModel {
 	private String empreinte;
 	private ProtagonnisteModelImpl protagonnisteEmpreinte;
 	private ArrayList<ArmeModel> listArmeEmpreinte;
-	private ArrayList<VehiculeModel> listVehiculeEmrpreinte;
+	private ArrayList<Vehicule> listVehiculeEmrpreinte;
 	
 	public EmpreinteModel() {
 		super();
@@ -46,11 +46,11 @@ public class EmpreinteModel {
 		this.listArmeEmpreinte = listArmeEmpreinte;
 	}
 
-	public ArrayList<VehiculeModel> getListVehiculeEmrpreinte() {
+	public ArrayList<Vehicule> getListVehiculeEmrpreinte() {
 		return listVehiculeEmrpreinte;
 	}
 
-	public void setListVehiculeEmrpreinte(ArrayList<VehiculeModel> listVehiculeEmrpreinte) {
+	public void setListVehiculeEmrpreinte(ArrayList<Vehicule> listVehiculeEmrpreinte) {
 		this.listVehiculeEmrpreinte = listVehiculeEmrpreinte;
 	}
 

@@ -11,7 +11,7 @@ public class AffaireModel {
 	private Date date_clotureAffaire;
 	private String lieuAffaire;
 	private String rapportAffaire;
-	private List<VehiculeModel> listEmpreinteAffaire;
+	private List<Vehicule> listEmpreinteAffaire;
 	private List<ArmeModel> listArmeAffaire;
 	private List<ProtagonnisteModelImpl> listProtagonnisteAffaire;
 	
@@ -79,12 +79,12 @@ public class AffaireModel {
 		this.rapportAffaire = rapportAffaire;
 	}
 
-	public List<VehiculeModel> getListEmpreinteAffaire() {
+	public List<Vehicule> getListEmpreinteAffaire() {
 		return listEmpreinteAffaire;
 	}
 
 
-	public void setListEmpreinteAffaire (List<VehiculeModel> listEmpreinteAffaire) {
+	public void setListEmpreinteAffaire (List<Vehicule> listEmpreinteAffaire) {
 		this.listEmpreinteAffaire = listEmpreinteAffaire;
 	}
 

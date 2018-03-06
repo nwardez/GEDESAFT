@@ -8,7 +8,7 @@ public class AdnModel {
 	private String ADN;
 	private ProtagonnisteModelImpl protagonnisteAdn;
 	private ArrayList<ArmeModel> listArmeAdn;
-	private ArrayList<VehiculeModel> listVehiculeAdn;
+	private ArrayList<Vehicule> listVehiculeAdn;
 	
 	public AdnModel() {
 		super();
@@ -46,11 +46,11 @@ public class AdnModel {
 		this.listArmeAdn = listArmeAdn;
 	}
 
-	public ArrayList<VehiculeModel> getListVehiculeAdn() {
+	public ArrayList<Vehicule> getListVehiculeAdn() {
 		return listVehiculeAdn;
 	}
 
-	public void setListVehiculeAdn(ArrayList<VehiculeModel> listVehiculeAdn) {
+	public void setListVehiculeAdn(ArrayList<Vehicule> listVehiculeAdn) {
 		this.listVehiculeAdn = listVehiculeAdn;
 	}
 
