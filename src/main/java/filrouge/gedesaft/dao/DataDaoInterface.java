@@ -2,14 +2,14 @@ package filrouge.gedesaft.dao;
 
 import java.util.List;
 
-import filrouge.gedesaft.model.ButtonModel;
+import filrouge.gedesaft.model.RepresentationModel;
 
 public interface DataDaoInterface {
 	
-	public List<ButtonModel> getListButtonData (
+	public List<RepresentationModel> getListButtonData (
 			Long idRecherche, 
-			String idObjectButton, 
-			String nameObjectButton, 
+			String idObjectRepresentation, 
+			String nameObjectRepresentation, 
 			String request
 			) throws Exception;
 	

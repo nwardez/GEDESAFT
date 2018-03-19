@@ -10,10 +10,10 @@ public class Vehicule {
 	private String modeleVehicule;
 	private String immatriculationVehicule;
 	private String couleurVehicule;
-	private List<ButtonModel> listProtagonnisteVehicule;
-	private List<ButtonModel> listAffaireVehicule;
-	private List<ButtonModel> listEmpreinteVehicule;
-	private List<ButtonModel> listAdnVehicule;
+	private List<RepresentationModel> listProtagonnisteVehicule;
+	private List<RepresentationModel> listAffaireVehicule;
+	private List<RepresentationModel> listEmpreinteVehicule;
+	private List<RepresentationModel> listAdnVehicule;
 	
 	public Vehicule () {
 		super();
@@ -67,35 +67,35 @@ public class Vehicule {
 		this.couleurVehicule = couleurVehicule;
 	}
 
-	public List<ButtonModel> getListProtagonnisteVehicule() {
+	public List<RepresentationModel> getListProtagonnisteVehicule() {
 		return listProtagonnisteVehicule;
 	}
 
-	public void setListProtagonnisteVehicule(List<ButtonModel> listProtagonnisteVehicule) {
+	public void setListProtagonnisteVehicule(List<RepresentationModel> listProtagonnisteVehicule) {
 		this.listProtagonnisteVehicule = listProtagonnisteVehicule;
 	}
 
-	public List<ButtonModel> getListAffaireVehicule() {
+	public List<RepresentationModel> getListAffaireVehicule() {
 		return listAffaireVehicule;
 	}
 
-	public void setListAffaireVehicule(List<ButtonModel> listAffaireVehicule) {
+	public void setListAffaireVehicule(List<RepresentationModel> listAffaireVehicule) {
 		this.listAffaireVehicule = listAffaireVehicule;
 	}
 
-	public List<ButtonModel> getListEmpreinteVehicule() {
+	public List<RepresentationModel> getListEmpreinteVehicule() {
 		return listEmpreinteVehicule;
 	}
 
-	public void setListEmpreinteVehicule(List<ButtonModel> listEmpreinteVehicule) {
+	public void setListEmpreinteVehicule(List<RepresentationModel> listEmpreinteVehicule) {
 		this.listEmpreinteVehicule = listEmpreinteVehicule;
 	}
 
-	public List<ButtonModel> getListAdnVehicule() {
+	public List<RepresentationModel> getListAdnVehicule() {
 		return listAdnVehicule;
 	}
 
-	public void setListAdnVehicule(List<ButtonModel> listAdnVehicule) {
+	public void setListAdnVehicule(List<RepresentationModel> listAdnVehicule) {
 		this.listAdnVehicule = listAdnVehicule;
 	}
 	

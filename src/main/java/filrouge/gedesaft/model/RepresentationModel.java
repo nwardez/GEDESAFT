@@ -1,11 +1,11 @@
 package filrouge.gedesaft.model;
 
-public class ButtonModel {
+public class RepresentationModel {
 	
 	Long id;
 	String name;
 	
-	public ButtonModel () {
+	public RepresentationModel () {
 		super();
 	}
 

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import filrouge.gedesaft.model.ButtonModel;
+import filrouge.gedesaft.model.RepresentationModel;
 import filrouge.gedesaft.model.Vehicule;
 import filrouge.gedesaft.service.VehiculeService;
 
@@ -28,7 +28,7 @@ public class VehiculeController {
 	 */
 	@RequestMapping(value = "/liste_vehicules", method = RequestMethod.GET)
 	public ResponseEntity<?> getListVehiculeButton(){
-		List<ButtonModel> listButtonName = null; 
+		List<RepresentationModel> listButtonName = null; 
 		try {
 			listButtonName = vehiculeService.getListVehiculeButton(id_utilisateur);
 		} catch (Exception e) {

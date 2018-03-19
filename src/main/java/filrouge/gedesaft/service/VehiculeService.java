@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import filrouge.gedesaft.dao.DaoVehicule;
-import filrouge.gedesaft.model.ButtonModel;
+import filrouge.gedesaft.model.RepresentationModel;
 import filrouge.gedesaft.model.Vehicule;
 
 @Service
@@ -15,7 +15,7 @@ public class VehiculeService {
 	@Autowired
 	private DaoVehicule dao;
 
-	public List<ButtonModel> getListVehiculeButton(Long id_utilisateur) throws Exception {
+	public List<RepresentationModel> getListVehiculeButton(Long id_utilisateur) throws Exception {
 		return dao.getListButtonVehicule(id_utilisateur);
 	}
 	

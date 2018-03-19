@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import filrouge.gedesaft.model.ButtonModel;
+import filrouge.gedesaft.model.RepresentationModel;
 
 @Repository
 public class DataDaoImpl implements DataDaoInterface {
@@ -28,22 +28,22 @@ public class DataDaoImpl implements DataDaoInterface {
 	}
 	
 	@Override
-	public List<ButtonModel> getListButtonData(
-			Long idRecherche, String idObjectButton, String nameObjectButton, String request)
+	public List<RepresentationModel> getListButtonData(
+			Long idRecherche, String idObjectRepresentation, String nameObjectRepresentation, String request)
 			throws Exception {
-		ButtonModel button;
-		QueryResultButton buttonResult = new QueryResultButton ();
+		RepresentationModel representation;
+		QueryResultRepresentation representationResult = new QueryResultRepresentation ();
 		PreparedStatement pstmt = null;
 		ResultSet rs;
-		List<ButtonModel> buttonList = new ArrayList<ButtonModel>();
+		List<RepresentationModel> representationList = new ArrayList<RepresentationModel>();
 		try {
 			pstmt = datasource.getConnection().prepareStatement(request);
 			pstmt.setLong(1, idRecherche);
 			logSQL(pstmt);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				button = buttonResult.queryResult(rs, idObjectButton, nameObjectButton);				
-				buttonList.add(button);
+				representation = representationResult.queryResult(rs, idObjectRepresentation, nameObjectRepresentation);				
+				representationList.add(representation);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -52,7 +52,7 @@ public class DataDaoImpl implements DataDaoInterface {
 		} finally {
 			pstmt.close();
 		}
-		return buttonList;
+		return representationList;
 	}
 
 	@Override

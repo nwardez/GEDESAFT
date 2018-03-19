@@ -4,21 +4,11 @@ public class QueryResultObjectFactory {
 	
 	public QueryResultObjectInterface getQueryResultObject (String objectType) {
 		
-		if (objectType.equals("vehicule")) {
-			return new QueryResultVehicule();
-		} else {
-			return null;
+		switch (objectType) {
+			case "vehicule" : return new QueryResultVehicule();
+			default: return null;
 		}
 		
-//		QueryResultObjectInterface queryResultInstance;
-//		
-//		switch (objectType) {
-//			case "vehicule" : queryResultInstance = new QueryResultVehicule();
-//			default: queryResultInstance = null;
-//			break;
-//		}
-//		
-//		return queryResultInstance;
 	}
 
 }
