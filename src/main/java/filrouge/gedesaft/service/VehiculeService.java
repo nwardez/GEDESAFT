@@ -10,12 +10,12 @@ import filrouge.gedesaft.model.RepresentationModel;
 import filrouge.gedesaft.model.Vehicule;
 
 @Service
-public class VehiculeController {
+public class VehiculeService {
 
 	@Autowired
 	private DaoVehicule dao;
 
-	public List<RepresentationModel> getListVehiculeButton(Long id_utilisateur) throws Exception {
+	public List<RepresentationModel> getListVehiculeRepresentation(Long id_utilisateur) throws Exception {
 		return dao.getListRepresentationVehicule(id_utilisateur);
 	}
 	

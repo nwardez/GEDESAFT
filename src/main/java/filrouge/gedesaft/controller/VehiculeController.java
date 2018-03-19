@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import filrouge.gedesaft.model.RepresentationModel;
 import filrouge.gedesaft.model.Vehicule;
-import filrouge.gedesaft.service.VehiculeController;
+import filrouge.gedesaft.service.VehiculeService;
 
 @RestController
 @RequestMapping("/vehicule")
@@ -21,20 +21,20 @@ public class VehiculeController {
 	Long id_utilisateur = (long) 7;
 	
 	@Autowired
-	private VehiculeController vehiculeService;
+	private VehiculeService vehiculeService;
 
 	/**
 	 * @return
 	 */
 	@RequestMapping(value = "/liste_vehicules", method = RequestMethod.GET)
-	public ResponseEntity<?> getListVehiculeButton(){
-		List<RepresentationModel> listButtonName = null; 
+	public ResponseEntity<?> getListVehiculeRepresentation(){
+		List<RepresentationModel> listRepresentationName = null; 
 		try {
-			listButtonName = vehiculeService.getListVehiculeButton(id_utilisateur);
+			listRepresentationName = vehiculeService.getListVehiculeRepresentation(id_utilisateur);
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
 		}
-		return ResponseEntity.status(HttpStatus.OK).body(listButtonName);
+		return ResponseEntity.status(HttpStatus.OK).body(listRepresentationName);
 	}
 
 	/**
