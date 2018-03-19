@@ -10,7 +10,7 @@ import filrouge.gedesaft.model.RepresentationModel;
 import filrouge.gedesaft.model.Vehicule;
 
 @Service
-public class VehiculeService {
+public class VehiculeController {
 
 	@Autowired
 	private DaoVehicule dao;

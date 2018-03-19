@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import filrouge.gedesaft.model.RepresentationModel;
 import filrouge.gedesaft.model.Vehicule;
-import filrouge.gedesaft.service.VehiculeService;
+import filrouge.gedesaft.service.VehiculeController;
 
 @RestController
 @RequestMapping("/vehicule")
@@ -21,7 +21,7 @@ public class VehiculeController {
 	Long id_utilisateur = (long) 7;
 	
 	@Autowired
-	private VehiculeService vehiculeService;
+	private VehiculeController vehiculeService;
 
 	/**
 	 * @return
