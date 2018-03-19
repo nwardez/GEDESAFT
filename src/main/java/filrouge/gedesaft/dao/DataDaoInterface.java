@@ -6,7 +6,7 @@ import filrouge.gedesaft.model.RepresentationModel;
 
 public interface DataDaoInterface {
 	
-	public List<RepresentationModel> getListButtonData (
+	public List<RepresentationModel> getListRepresentationData (
 			Long idRecherche, 
 			String idObjectRepresentation, 
 			String nameObjectRepresentation, 

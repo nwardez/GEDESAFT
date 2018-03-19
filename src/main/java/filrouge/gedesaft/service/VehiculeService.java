@@ -16,15 +16,15 @@ public class VehiculeService {
 	private DaoVehicule dao;
 
 	public List<RepresentationModel> getListVehiculeButton(Long id_utilisateur) throws Exception {
-		return dao.getListButtonVehicule(id_utilisateur);
+		return dao.getListRepresentationVehicule(id_utilisateur);
 	}
 	
 	public Vehicule getVehiculeDetail(Long id_vehicule) throws Exception {
 		Vehicule vehicule = dao.getVehicule(id_vehicule);
-		vehicule.setListAffaireVehicule(dao.getListButtonAffaireOfVehicule(id_vehicule));
-		vehicule.setListAdnVehicule(dao.getListButtonADNOfVehicule(id_vehicule));
-		vehicule.setListEmpreinteVehicule(dao.getListButtonEmpreinteOfVehicule(id_vehicule));
-		vehicule.setListProtagonnisteVehicule(dao.getListButtonProtagonnisteOfVehicule(id_vehicule));
+		vehicule.setListAffaireVehicule(dao.getListRepresentationAffaireOfVehicule(id_vehicule));
+		vehicule.setListAdnVehicule(dao.getListRepresentationADNOfVehicule(id_vehicule));
+		vehicule.setListEmpreinteVehicule(dao.getListRepresentationEmpreinteOfVehicule(id_vehicule));
+		vehicule.setListProtagonnisteVehicule(dao.getListRepresentationProtagonnisteOfVehicule(id_vehicule));
 		return vehicule;
 	}
 }

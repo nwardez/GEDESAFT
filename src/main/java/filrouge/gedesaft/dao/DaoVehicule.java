@@ -16,7 +16,7 @@ public class DaoVehicule extends DataDaoImpl {
 		super(jdbcTemplate);
 	}
 	
-	public List<RepresentationModel> getListButtonVehicule(Long id_utilisateur) throws Exception {	
+	public List<RepresentationModel> getListRepresentationVehicule(Long id_utilisateur) throws Exception {	
 		Long idRecherche = id_utilisateur;
 		String idObjectRepresentation = "id_vehicule";
 		String nameObjectRepresentation = "typeVehicule";
@@ -26,7 +26,7 @@ public class DaoVehicule extends DataDaoImpl {
 				+ " JOIN affaire_has_protagonniste ON affaire.id_affaire = affaire_has_protagonniste.id_affaire"
 				+ " JOIN protagonniste ON affaire_has_protagonniste.id_protagonniste = protagonniste.id_protagonniste"
 				+ " WHERE protagonniste.id_Protagonniste = ? ";
-		return getListButtonData(idRecherche, idObjectRepresentation, nameObjectRepresentation, request);
+		return getListRepresentationData(idRecherche, idObjectRepresentation, nameObjectRepresentation, request);
 	}
 
 	public Vehicule getVehicule(Long id_vehicule) throws Exception {
@@ -36,7 +36,7 @@ public class DaoVehicule extends DataDaoImpl {
 		return (Vehicule) getObjectData(objectType, idObject, request);
 	}
 	
-	public List<RepresentationModel> getListButtonAffaireOfVehicule(Long id_vehicule) throws Exception {	
+	public List<RepresentationModel> getListRepresentationAffaireOfVehicule(Long id_vehicule) throws Exception {	
 		Long idRecherche = id_vehicule;
 		String idAffaireRepresentation = "id_affaire";
 		String nameAffaireRepresentation = "nomAffaire";
@@ -44,10 +44,10 @@ public class DaoVehicule extends DataDaoImpl {
 				+ " JOIN affaire_has_vehicule ON affaire.id_affaire = affaire_has_vehicule.id_affaire"
 				+ " JOIN vehicule ON affaire_has_vehicule.id_vehicule = vehicule.id_vehicule"
 				+ " WHERE vehicule.id_vehicule = ?";
-		return getListButtonData(idRecherche, idAffaireRepresentation, nameAffaireRepresentation, request);
+		return getListRepresentationData(idRecherche, idAffaireRepresentation, nameAffaireRepresentation, request);
 	}
 	
-	public List<RepresentationModel> getListButtonADNOfVehicule(Long id_vehicule) throws Exception {
+	public List<RepresentationModel> getListRepresentationADNOfVehicule(Long id_vehicule) throws Exception {
 		Long idRecherche = id_vehicule;
 		String idADNRepresentation = "id_ADN";
 		String nameADNRepresentation = "nomADN";
@@ -55,10 +55,10 @@ public class DaoVehicule extends DataDaoImpl {
 				+ " JOIN vehicule_has_adn ON adn.id_ADN = vehicule_has_adn.id_adn"
 				+ " JOIN vehicule ON vehicule_has_adn.id_vehicule = vehicule.id_vehicule"
 				+ " WHERE vehicule.id_vehicule = ?";
-		return getListButtonData(idRecherche, idADNRepresentation, nameADNRepresentation, request);
+		return getListRepresentationData(idRecherche, idADNRepresentation, nameADNRepresentation, request);
 	}
 	
-	public List<RepresentationModel> getListButtonEmpreinteOfVehicule(Long id_vehicule) throws Exception {
+	public List<RepresentationModel> getListRepresentationEmpreinteOfVehicule(Long id_vehicule) throws Exception {
 		Long idRecherche = id_vehicule;
 		String idEmpreinteRepresentation = "id_empreintes";
 		String nameEmpreinteRepresentation = "nomEmpreintes";
@@ -66,10 +66,10 @@ public class DaoVehicule extends DataDaoImpl {
 				+ " JOIN vehicule_has_empreintes ON empreintes.id_empreintes = vehicule_has_empreintes.id_empreintes"
 				+ " JOIN vehicule ON vehicule_has_empreintes.id_vehicule = vehicule.id_vehicule"
 				+ " WHERE vehicule.id_vehicule = ?";
-		return getListButtonData(idRecherche, idEmpreinteRepresentation, nameEmpreinteRepresentation, request);
+		return getListRepresentationData(idRecherche, idEmpreinteRepresentation, nameEmpreinteRepresentation, request);
 	}
 
-	public List<RepresentationModel> getListButtonProtagonnisteOfVehicule(Long id_vehicule) throws Exception {
+	public List<RepresentationModel> getListRepresentationProtagonnisteOfVehicule(Long id_vehicule) throws Exception {
 		Long idRecherche = id_vehicule;
 		String idProtagonnisteRepresentation = "id_protagonniste";
 		String nameProtagonnisteRepresentation = "nomProtagonniste";
@@ -77,7 +77,7 @@ public class DaoVehicule extends DataDaoImpl {
 				+ " JOIN protagonniste_has_vehicule ON protagonniste.id_protagonniste = protagonniste_has_vehicule.id_protagonniste"
 				+ " JOIN vehicule on protagonniste_has_vehicule.id_vehicule = vehicule.id_vehicule"
 				+ " WHERE vehicule.id_vehicule = ?";
-		return getListButtonData(idRecherche, idProtagonnisteRepresentation, nameProtagonnisteRepresentation, request);
+		return getListRepresentationData(idRecherche, idProtagonnisteRepresentation, nameProtagonnisteRepresentation, request);
 	}
 
 }
